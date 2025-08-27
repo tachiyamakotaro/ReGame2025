@@ -29,10 +29,10 @@ bool GameOver::Start()
 	SoundManager* sound = FindGO<SoundManager>("soundManager");
 	m_gameOverBGM = sound->PlayingSound(Sound::enSound_GameOverBGM);
 
-	m_continuefontRender.SetText(L"    CONTINUE     \nPRESS START BUTTON");
+	/*m_continuefontRender.SetText(L"    CONTINUE     \nPRESS START BUTTON");
 	m_continuefontRender.SetPosition({ -270.0f,100.0f,0.0f });
 	m_continuefontRender.SetColor(g_vec4Black);
-	m_continuefontRender.SetScale(1.5f);
+	m_continuefontRender.SetScale(1.5f);*/
 
 	m_titleTransferFontRender.SetText(L"      EXIT      \nPRESS SELECT BUTTON");
 	m_titleTransferFontRender.SetPosition({ -300.0f,-200.0f,0.0f });
@@ -44,12 +44,12 @@ bool GameOver::Start()
 
 void GameOver::Update()
 {
-	if (g_pad[0]->IsTrigger(enButtonStart))
+	/*if (g_pad[0]->IsTrigger(enButtonStart))
 	{
 		NewGO<Game>(0, "game");
 		DeleteGO(m_gameOverBGM);
 		DeleteGO(this);
-	}
+	}*/
 	if (g_pad[0]->IsTrigger(enButtonSelect))
 	{
 		NewGO<Title>(0, "title");

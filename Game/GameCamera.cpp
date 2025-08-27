@@ -31,31 +31,31 @@ void GameCamera::Update()
 	Vector3 target = m_player->m_position;
 	target.y += 80.0f;
 
-	Vector3 toCameraPosOld = m_toCameraPos;
-	//パッドの入力を使ってカメラを回す。
-	float x = g_pad[0]->GetRStickXF();
-	float y = g_pad[0]->GetRStickYF();
-	//Y軸周りの回転
-	Quaternion qRot;
-	qRot.SetRotationDeg(Vector3::AxisY, 1.3f * x);
-	qRot.Apply(m_toCameraPos);
-	//X軸周りの回転。
-	Vector3 axisX;
-	axisX.Cross(Vector3::AxisY, m_toCameraPos);
-	axisX.Normalize();
-	qRot.SetRotationDeg(axisX, 1.3f * y);
-	qRot.Apply(m_toCameraPos);
+	//Vector3 toCameraPosOld = m_toCameraPos;
+	////パッドの入力を使ってカメラを回す。
+	//float x = g_pad[0]->GetRStickXF();
+	//float y = g_pad[0]->GetRStickYF();
+	////Y軸周りの回転
+	//Quaternion qRot;
+	//qRot.SetRotationDeg(Vector3::AxisY, 1.3f * x);
+	//qRot.Apply(m_toCameraPos);
+	////X軸周りの回転。
+	//Vector3 axisX;
+	//axisX.Cross(Vector3::AxisY, m_toCameraPos);
+	//axisX.Normalize();
+	//qRot.SetRotationDeg(axisX, 1.3f * y);
+	//qRot.Apply(m_toCameraPos);
 
-	Vector3 toPosDir = m_toCameraPos;
-	toPosDir.Normalize();
-	if (toPosDir.y < -0.2f) 
-	{
-		m_toCameraPos = toCameraPosOld;
-	}
-	else if (toPosDir.y > 0.9f) 
-	{
-		m_toCameraPos = toCameraPosOld;
-	}
+	//Vector3 toPosDir = m_toCameraPos;
+	//toPosDir.Normalize();
+	//if (toPosDir.y < -0.2f) 
+	//{
+	//	m_toCameraPos = toCameraPosOld;
+	//}
+	//else if (toPosDir.y > 0.9f) 
+	//{
+	//	m_toCameraPos = toCameraPosOld;
+	//}
 
 	Vector3 pos = target + m_toCameraPos;
 	
